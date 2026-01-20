@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="theaug - Vu Thai Son | Script Developer Portfolio. Professional web development and scripting solutions.">
+    <meta name="keywords" content="Script Developer, Web Developer, theaug, Vu Thai Son, Portfolio">
+    <meta name="author" content="Vu Thai Son">
+    <title>theaug - Script Developer</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loader-content">
+            <div class="loader-logo">
+                <span class="logo-text">theaug<span class="gold-text">.</span></span>
+            </div>
+            <div class="loader-bar">
+                <div class="loader-progress" id="loaderProgress"></div>
+            </div>
+            <p class="loader-text">Loading Portfolio...</p>
+        </div>
+    </div>
+
+    <!-- Particle Background Canvas -->
+    <canvas id="particleCanvas"></canvas>
+
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress"></div>
+
+    <!-- Custom Context Menu -->
+    <div class="context-menu" id="contextMenu">
+        <div class="context-menu-item" id="copyEmail">
+            <i class="fas fa-envelope"></i>
+            <span>Copy Email</span>
+        </div>
+        <div class="context-menu-divider"></div>
+        <a href="https://github.com/theaug1308" target="_blank" class="context-menu-item">
+            <i class="fab fa-github"></i>
+            <span>GitHub</span>
+        </a>
+        <a href="https://www.facebook.com/theaug123" target="_blank" class="context-menu-item">
+            <i class="fab fa-facebook"></i>
+            <span>Facebook</span>
+        </a>
+        <a href="https://discord.com/users/theaug" target="_blank" class="context-menu-item">
+            <i class="fab fa-discord"></i>
+            <span>Discord</span>
+        </a>
+    </div>
+
+    <!-- Theme Color Picker -->
+    <div class="theme-picker">
+        <div class="theme-picker-icon" id="themePickerIcon">
+            <i class="fas fa-cog"></i>
+        </div>
+        <div class="theme-picker-menu" id="themePickerMenu">
+            <div class="theme-picker-title">Choose Theme Color</div>
+            <div class="color-options">
+                <div class="color-option" data-color="gold"
+                    style="background: linear-gradient(135deg, #d4af37, #ffd700);" title="Gold (Default)">
+                    <i class="fas fa-check"></i>
+                </div>
+                <div class="color-option" data-color="blue"
+                    style="background: linear-gradient(135deg, #4a90e2, #67b5ff);" title="Blue"></div>
+                <div class="color-option" data-color="purple"
+                    style="background: linear-gradient(135deg, #9b59b6, #c084fc);" title="Purple"></div>
+                <div class="color-option" data-color="green"
+                    style="background: linear-gradient(135deg, #2ecc71, #4ade80);" title="Green"></div>
+                <div class="color-option" data-color="red"
+                    style="background: linear-gradient(135deg, #e74c3c, #f87171);" title="Red"></div>
+                <div class="color-option" data-color="cyan"
+                    style="background: linear-gradient(135deg, #1abc9c, #22d3ee);" title="Cyan"></div>
+                <div class="color-option" data-color="orange"
+                    style="background: linear-gradient(135deg, #f39c12, #fb923c);" title="Orange"></div>
+                <div class="color-option" data-color="pink"
+                    style="background: linear-gradient(135deg, #e91e63, #f472b6);" title="Pink"></div>
+                <div class="color-option" data-color="teal"
+                    style="background: linear-gradient(135deg, #009688, #14b8a6);" title="Teal"></div>
+                <div class="color-option" data-color="indigo"
+                    style="background: linear-gradient(135deg, #3f51b5, #818cf8);" title="Indigo"></div>
+                <div class="color-option" data-color="lime"
+                    style="background: linear-gradient(135deg, #8bc34a, #a3e635);" title="Lime"></div>
+                <div class="color-option" data-color="white"
+                    style="background: linear-gradient(135deg, #e0e0e0, #ffffff); border: 1px solid rgba(255,255,255,0.2);"
+                    title="White"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#home" class="nav-logo">theaug<span class="gold-text">.</span></a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="#skills" class="nav-link">Technologies</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content fade-in">
+                <h1 class="hero-title">
+                    <span class="glitch-wrapper">
+                        <span class="glitch" data-text="Hi, I'm theaug">Hi, I'm <span
+                                class="gold-text">theaug</span></span>
+                    </span>
+                </h1>
+                <h2 class="hero-subtitle">Vu Thai Son</h2>
+                <p class="hero-role">
+                    <span id="typingText"></span>
+                    <span class="typing-cursor">|</span>
+                </p>
+                <p class="hero-description">
+                    Passionate about turning vision into reality.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn btn-primary">View My Work</a>
+                    <a href="#contact" class="btn btn-secondary" id="contactBtn">Get In Touch</a>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title fade-in">About <span class="gold-text">Me</span></h2>
+            <div class="about-content">
+                <div class="about-card glass-card fade-in">
+                    <div class="about-text">
+                        <h3>Script Developer</h3>
+                        <p>
+                            I'm <strong>Vu Thai Son</strong>, also known as <strong>theaug</strong>.
+                            As a dedicated Script Developer, I specialize in creating innovative web solutions
+                            that combine functionality with exceptional user experience.
+                        </p>
+                        <p>
+                            My passion lies in developing interactive platforms that solve real-world problems.
+                            From multi-platform integrations to educational simulations, I strive to deliver
+                            professional results that exceed expectations.
+                        </p>
+                        <p class="about-highlight">
+                            <i class="fas fa-quote-left"></i>
+                            Passionate about turning vision into reality.
+                            <i class="fas fa-quote-right"></i>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience">
+        <div class="container">
+            <h2 class="section-title fade-in">Experience & <span class="gold-text">Background</span></h2>
+            <div class="experience-grid">
+                <div class="experience-card glass-card fade-in">
+                    <div class="experience-icon">
+                        <i class="fab fa-discord"></i>
+                    </div>
+                    <h3>Discord Server AUG-X</h3>
+                    <p class="experience-role">Founder & Business Owner</p>
+                    <p class="experience-description">
+                        Founded and managed a successful Discord community focused on VPS and digital services.
+                        Achieved monthly revenue of <strong class="gold-text counter" data-target="3000">$0</strong>+
+                        with profit margins
+                        exceeding <strong class="gold-text counter" data-target="1000">$0</strong>+ per month.
+                    </p>
+                    <div class="experience-tags">
+                        <span class="exp-tag">Business Management</span>
+                        <span class="exp-tag">Community Building</span>
+                        <span class="exp-tag">VPS Services</span>
+                    </div>
+                </div>
+
+                <div class="experience-card glass-card fade-in">
+                    <div class="experience-icon">
+                        <i class="fas fa-gamepad"></i>
+                    </div>
+                    <h3>Roblox Cheat Community</h3>
+                    <p class="experience-role">Senior Moderator</p>
+                    <p class="experience-description">
+                        Served as a moderator for Vietnam's largest Roblox cheat community.
+                        Gained extensive experience in <strong class="gold-text">game exploitation</strong>,
+                        reverse engineering, and community management.
+                    </p>
+                    <div class="experience-tags">
+                        <span class="exp-tag">Game Exploiting</span>
+                        <span class="exp-tag">Moderation</span>
+                        <span class="exp-tag">Community Management</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2 class="section-title fade-in">Technologies <span class="gold-text">Used</span></h2>
+            <div class="skills-grid">
+                <div class="skill-card glass-card fade-in">
+                    <div class="skill-icon">
+                        <i class="fab fa-js"></i>
+                    </div>
+                    <h3>JavaScript</h3>
+                    <p>Modern ES6+ development</p>
+                </div>
+                <div class="skill-card glass-card fade-in">
+                    <div class="skill-icon">
+                        <i class="fab fa-html5"></i>
+                    </div>
+                    <h3>HTML5</h3>
+                    <p>Semantic markup</p>
+                </div>
+                <div class="skill-card glass-card fade-in">
+                    <div class="skill-icon">
+                        <i class="fab fa-css3-alt"></i>
+                    </div>
+                    <h3>CSS3</h3>
+                    <p>Modern styling & animations</p>
+                </div>
+                <div class="skill-card glass-card fade-in">
+                    <div class="skill-icon">
+                        <i class="fas fa-cube"></i>
+                    </div>
+                    <h3>Three.js</h3>
+                    <p>3D graphics & visualization</p>
+                </div>
+                <div class="skill-card glass-card fade-in">
+                    <div class="skill-icon">
+                        <i class="fas fa-fire"></i>
+                    </div>
+                    <h3>Firebase</h3>
+                    <p>Backend & authentication</p>
+                </div>
+                <div class="skill-card glass-card fade-in">
+                    <div class="skill-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>API Integration</h3>
+                    <p>Multi-platform connectivity</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title fade-in">Featured <span class="gold-text">Projects</span></h2>
+            <div class="projects-grid">
+                <!-- Project 1: Music Playlist -->
+                <div class="project-card glass-card fade-in">
+                    <div class="project-content">
+                        <h3>Multi-platform Music Playlist Web</h3>
+                        <p>
+                            A platform where users can upload MP3 files or add links from SoundCloud,
+                            YouTube, and Spotify into one unified playlist. Maximizes the advantages
+                            of each platform's music library while minimizing advertisements.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">API Integration</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">Audio Player</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2: Physics Simulation -->
+                <div class="project-card glass-card fade-in">
+                    <div class="project-content">
+                        <h3>Physics Simulation Learning Platform</h3>
+                        <p>
+                            An interactive web platform for simulating physics phenomena with 3D modeling.
+                            Features user authentication, topic-based quizzes for practice, and learning
+                            progress tracking to enhance the educational experience.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Three.js</span>
+                            <span class="tech-tag">Firebase</span>
+                            <span class="tech-tag">3D Visualization</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-social">
+                    <a href="https://github.com/theaug1308" target="_blank" rel="noopener noreferrer"
+                        class="social-link" title="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.facebook.com/theaug123" target="_blank" rel="noopener noreferrer"
+                        class="social-link" title="Facebook">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                    <a href="https://discord.com/users/theaug" target="_blank" rel="noopener noreferrer"
+                        class="social-link" title="Discord">
+                        <i class="fab fa-discord"></i>
+                    </a>
+                </div>
+                <div class="footer-contact">
+                    <a href="mailto:vuthaison672@gmail.com" class="footer-email">
+                        <i class="fas fa-envelope"></i>
+                        vuthaison672@gmail.com
+                    </a>
+                </div>
+                <p>&copy; <span id="year"></span> theaug. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="themes.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
