@@ -1,65 +1,41 @@
-/* ===================================
-   CSS Custom Properties (Variables)
-   =================================== */
 :root {
-    /* Colors - Black & Gold Theme */
     --color-bg-primary: #0a0a0a;
     --color-bg-secondary: #111111;
     --color-bg-card: rgba(255, 255, 255, 0.03);
-
-    /* Theme Colors (Default: Gold) */
     --color-theme-primary: #d4af37;
     --color-theme-hover: #f4d03f;
     --color-theme-glow: #ffd700;
-
-    /* Legacy variables mapping */
     --color-gold-primary: var(--color-theme-primary);
     --color-gold-hover: var(--color-theme-hover);
     --color-gold-glow: var(--color-theme-glow);
-
     --color-text-primary: #e0e0e0;
     --color-text-secondary: #999999;
     --color-text-muted: #666666;
-
-    /* Theme RGB for Alpha Colors */
     --color-primary-rgb: 212, 175, 55;
-
-    /* Glass Effect */
     --glass-bg: rgba(255, 255, 255, 0.05);
     --glass-border: rgba(var(--color-primary-rgb), 0.2);
     --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-
-    /* Typography */
     --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     --font-weight-light: 300;
     --font-weight-regular: 400;
     --font-weight-medium: 500;
     --font-weight-semibold: 600;
     --font-weight-bold: 700;
-
-    /* Spacing */
     --spacing-xs: 0.5rem;
     --spacing-sm: 1rem;
     --spacing-md: 2rem;
     --spacing-lg: 4rem;
     --spacing-xl: 6rem;
-
-    /* Transitions */
     --transition-fast: 0.2s ease;
     --transition-normal: 0.3s ease;
     --transition-slow: 0.5s ease;
-
-    /* Border Radius */
     --radius-sm: 8px;
     --radius-md: 12px;
     --radius-lg: 16px;
-
-    /* Z-index */
     --z-navbar: 1000;
     --z-overlay: 100;
 }
 
-/* Custom Scrollbar */
 ::-webkit-scrollbar {
     width: 10px;
 }
@@ -78,15 +54,11 @@
     background: var(--color-gold-hover);
 }
 
-/* Selection Highlight */
 ::selection {
     background: rgba(var(--color-primary-rgb), 0.3);
     color: var(--color-gold-primary);
 }
 
-/* ===================================
-   Reset & Base Styles
-   =================================== */
 * {
     margin: 0;
     padding: 0;
@@ -116,12 +88,10 @@ body {
     -ms-user-select: none;
 }
 
-/* Smooth Scroll */
 html {
     scroll-behavior: smooth;
 }
 
-/* Custom Scrollbar */
 ::-webkit-scrollbar {
     width: 12px;
 }
@@ -142,15 +112,11 @@ html {
     box-shadow: 0 0 10px var(--color-gold-glow);
 }
 
-/* Firefox Scrollbar */
 * {
     scrollbar-width: thin;
     scrollbar-color: var(--color-gold-primary) var(--color-bg-secondary);
 }
 
-/* ===================================
-   Loading Screen
-   =================================== */
 .loading-screen {
     position: fixed;
     top: 0;
@@ -236,7 +202,6 @@ html {
     }
 }
 
-/* Particle Canvas Background */
 #particleCanvas {
     position: fixed;
     top: 0;
@@ -247,14 +212,12 @@ html {
     pointer-events: none;
 }
 
-/* Ensure content is above canvas */
 .navbar,
 section {
     position: relative;
     z-index: 10;
 }
 
-/* Scroll Progress Bar */
 .scroll-progress {
     position: fixed;
     top: 0;
@@ -267,9 +230,6 @@ section {
     box-shadow: 0 0 10px var(--color-gold-glow);
 }
 
-/* ===================================
-   Custom Context Menu
-   =================================== */
 .context-menu {
     position: fixed;
     background: var(--glass-bg);
@@ -322,9 +282,6 @@ section {
     margin: var(--spacing-xs) 0;
 }
 
-/* ===================================
-   Theme Color Picker
-   =================================== */
 .theme-picker {
     position: fixed;
     bottom: 30px;
@@ -424,14 +381,12 @@ section {
     transition: opacity 0.3s ease;
 }
 
-/* Dynamic Spotlight Glow */
 .glass-card,
 .project-card,
 .experience-card,
 .skill-card,
 .about-card {
     position: relative;
-    /* overflow: hidden; Removed to avoid clipping tilt/hover effects if needed, but usually safe */
 }
 
 .glass-card::before,
@@ -450,12 +405,9 @@ section {
             transparent 40%);
     opacity: 0;
     transition: opacity 0.3s, background 0.3s;
-    /* Smooth color transition */
     pointer-events: none;
     z-index: 2;
-    /* Ensure it's above content background but below text if needed */
     border-radius: inherit;
-    /* Follow card radius */
 }
 
 .glass-card:hover::before,
@@ -470,7 +422,6 @@ section {
     opacity: 1;
 }
 
-/* Liquid Glass Cursor Effect */
 .cursor {
     position: fixed;
     width: 20px;
@@ -483,7 +434,6 @@ section {
     transition: transform 0.15s ease, opacity 0.3s ease;
     opacity: 0;
     display: none;
-    /* Hide main cursor dot */
 }
 
 .cursor-trail {
@@ -512,9 +462,6 @@ section {
     display: none;
 }
 
-/* ===================================
-   Typography
-   =================================== */
 h1,
 h2,
 h3,
@@ -553,9 +500,6 @@ a:hover {
     color: var(--color-gold-hover);
 }
 
-/* ===================================
-   Utility Classes
-   =================================== */
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -590,7 +534,6 @@ a:hover {
     font-size: clamp(2rem, 4vw, 3rem);
 }
 
-/* Fade-in Animation */
 .fade-in {
     opacity: 0;
     transform: translateY(30px);
@@ -602,9 +545,6 @@ a:hover {
     transform: translateY(0);
 }
 
-/* ===================================
-   Navigation
-   =================================== */
 .navbar {
     position: fixed;
     top: 0;
@@ -687,9 +627,6 @@ a:hover {
     transition: all var(--transition-normal);
 }
 
-/* ===================================
-   Hero Section
-   =================================== */
 .hero {
     min-height: 100vh;
     display: flex;
@@ -725,7 +662,6 @@ a:hover {
     animation: fadeInUp 0.8s ease, gentleFloat 6s ease-in-out infinite;
 }
 
-/* Glitch Effect */
 .glitch-wrapper {
     display: inline-block;
 }
@@ -832,7 +768,6 @@ a:hover {
     animation-delay: 0.6s, 2s;
 }
 
-/* Typing Effect */
 .typing-cursor {
     color: var(--color-gold-primary);
     animation: blink 1s infinite;
@@ -861,7 +796,6 @@ a:hover {
     animation-delay: 0.8s, 2.5s;
 }
 
-/* Buttons */
 .btn {
     padding: 1rem 2rem;
     border-radius: var(--radius-sm);
@@ -875,7 +809,6 @@ a:hover {
     overflow: hidden;
 }
 
-/* Magnetic button effect */
 .btn::before {
     content: '';
     position: absolute;
@@ -920,7 +853,6 @@ a:hover {
     transform: translateY(-2px);
 }
 
-/* Scroll Indicator */
 .scroll-indicator {
     position: absolute;
     bottom: 30px;
@@ -949,9 +881,6 @@ a:hover {
     animation: scroll 1.5s infinite;
 }
 
-/* ===================================
-   About Section
-   =================================== */
 .about {
     padding: var(--spacing-xl) 0;
     background: var(--color-bg-secondary);
@@ -965,7 +894,6 @@ a:hover {
 .about-card {
     padding: var(--spacing-lg);
     border-radius: var(--radius-md);
-    /* Added for glow effect consistency */
 }
 
 .about-text h3 {
@@ -996,9 +924,6 @@ a:hover {
     font-size: 0.8em;
 }
 
-/* ===================================
-   Experience Section
-   =================================== */
 .experience {
     padding: var(--spacing-xl) 0;
     background: var(--color-bg-primary);
@@ -1093,9 +1018,6 @@ a:hover {
     transform: translateY(-2px);
 }
 
-/* ===================================
-   Skills Section
-   =================================== */
 .skills {
     padding: var(--spacing-xl) 0;
     background: var(--color-bg-primary);
@@ -1157,9 +1079,6 @@ a:hover {
     font-size: 0.9rem;
 }
 
-/* ===================================
-   Projects Section
-   =================================== */
 .projects {
     padding: var(--spacing-xl) 0;
     background: var(--color-bg-secondary);
@@ -1211,9 +1130,6 @@ a:hover {
     border: 1px solid rgba(var(--color-primary-rgb), 0.3);
 }
 
-/* ===================================
-   Footer
-   =================================== */
 .footer {
     background: var(--color-bg-secondary);
     padding: var(--spacing-lg) var(--spacing-md);
@@ -1264,7 +1180,6 @@ a:hover {
     margin: 0;
 }
 
-/* Social Links (used in footer) */
 .social-link {
     width: 50px;
     height: 50px;
@@ -1286,9 +1201,6 @@ a:hover {
     box-shadow: 0 5px 20px rgba(var(--color-primary-rgb), 0.4);
 }
 
-/* ===================================
-   Ripple Effect
-   =================================== */
 .ripple {
     position: absolute;
     border-radius: 50%;
@@ -1305,7 +1217,6 @@ a:hover {
     }
 }
 
-/* Ensure elements can contain ripple */
 .btn,
 .glass-card,
 .social-link {
@@ -1313,9 +1224,6 @@ a:hover {
     overflow: hidden;
 }
 
-/* ===================================
-   Animations
-   =================================== */
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -1371,12 +1279,7 @@ a:hover {
     }
 }
 
-/* ===================================
-   Responsive Design
-   =================================== */
 @media (max-width: 768px) {
-
-    /* Restore default cursor on mobile */
     body {
         cursor: auto;
     }
@@ -1463,7 +1366,6 @@ a:hover {
     }
 }
 
-/* FORCE DYNAMIC BORDER COLORS */
 .tech-tag,
 .exp-tag,
 .project-card,
